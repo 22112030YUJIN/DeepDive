@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox로 버튼 정렬하기기</title>
+    <style>
+        .flex-box{
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            
+        }
+        button{
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 30px;
+            cursor: pointer;
+            padding: 10px;
+            margin:5px;
+        }
+        button.ok{
+            background-color: aliceblue;
+            transition: background-color 0.7s ease-in;
+        }
+        button.ok:hover{
+           
+            background-color:rgb(15, 220, 186,0.4);
+           
+        }
+        button.cancel{
+            background-color: antiquewhite;
+        }
+        button.cancel:hover{
+            transition: background-color 0.7s ease-in;
+            background-color: rgb(195, 212, 36,0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="flex-box">
+        <button class="ok">확인</button>
+        <button class="cancel">취소</button>
+    </div>
+   
+</body>
+</html>

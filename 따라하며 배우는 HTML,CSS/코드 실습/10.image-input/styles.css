@@ -1,0 +1,16 @@
+.image{
+    width:400px;
+    height: 400px;
+
+    object-fit: cover;
+    /*
+    fill:기본값
+    contain: 종횡비를 우지하지만 치수에 맞게 크기 조정.
+    즉 내가 위에 설정한 크기가 무시될 수 있음음
+    fit:종횡비를 유지하고 이미지에 맞게 자름
+    none: 크기조정 안함
+    scale-down: 이미지가 none 또는 가장 작은 버전으로 축소
+    */
+
+    object-position: left;
+}

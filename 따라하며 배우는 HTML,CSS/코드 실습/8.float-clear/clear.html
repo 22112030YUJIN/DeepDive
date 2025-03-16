@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+        .div1{
+            float: left;
+            padding: 10px;
+            border: 3px solid #73AD21;
+        }
+
+        .div2{
+            padding:10px;
+            border: 3px solid red;
+        }
+
+        .div3{
+            float: left;
+            padding: 10px;
+            border: 3px solid #73AD21;
+        }
+
+        .div4{
+            padding:10px;
+            border: 3px solid red;
+            clear:left;
+            /*float영향을 안받게 함. div3가 left라서 얘도 left임임*/
+        }
+    </style>
+</head>
+<body>
+    <h2>Without clear</h2>
+    <div class="div1">div1</div>
+    <div class="div2">div2
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur dolore laboriosam quo eaque ea! Eum, similique, assumenda repudiandae exercitationem tempore eligendi dignissimos tenetur, cupiditate non 
+    consequuntur quibusdam quisquam odit praesentium!
+    </div>
+
+    <h2>With clear</h2>
+    <div class="div3">div3</div>
+    <div class="div4">div4
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel ipsum sequi alias, magni eius non temporibus doloribus quis omnis ullam 
+    rerum soluta deleniti rem enim harum, dolor a cum cupiditate.
+    </div>
+</body>
+</html>

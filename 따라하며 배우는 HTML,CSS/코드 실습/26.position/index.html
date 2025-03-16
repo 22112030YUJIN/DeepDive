@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box-container{
+            width:200px;
+            height:200px;
+            border:2px solid #669966;
+        }
+        .box-container div{
+            padding:10px;
+            border:1px solid green;
+            background-color: #ffdddd;
+        }
+
+        #static-box{
+            position:static;
+            top:20px;
+            left:30px;
+            /*static은 임의 위치대로 움직이지 않음*/
+        }
+        #relative-box{
+            position:relative;
+            top:20px;
+            left:30px;
+            /*relative는 원래 자기 위치에서부터 이동함함*/
+        }
+
+        #absolute-box{
+            position:absolute;
+            top:20px;
+            right:130px;
+            /*부모 요소에 static아닌게 있으면 걔 기준으로 움직이고
+            아니라면 body기준으로 배치
+            여긴 body기준임. body 영역은 f12에서 보면 거 웹 창 젤 위쪽 기준이더라라*/
+        }
+
+        #fixed-box{
+            position:fixed;
+            top:20px;
+            right:30px;
+            /*fixed는 스크롤과 상관없이 항상 문서 젤 좌측 상단에 좌표가 고정됌
+            걔 기준으로 top,right,b,l 이동함
+            스크롤 내려도 보고 싶을때 쓰는게 이거*/
+        }
+        #relative-box-1{
+            position:relative;
+            height: 80px;
+            margin-top: 70px;
+            border:3px solid #669966;
+            width:200px;
+        }
+        #absolute-box-1{
+            position:absolute;
+            top:40px;
+            left:30px;
+            border: 2px solid #ffdddd;
+           /*여긴 부모가 relative니까 부모 기준으로 좌표 이동동*/
+        }
+
+        div#sticky{
+            position: sticky;
+            top:20px;
+            /*sticky하면 스크롤 했을때 나타날 위치 정하는거임
+            그냥 기본적으로 화면에 뜰때는 absol처럼 거 못움직이는 거고*/
+            padding: 5px;
+            background-color: #669966;
+            border:2px solid #ffdddd;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box-container">
+        <div id="static-box">static</div>
+        <div id="relative-box">relative</div>
+        <div id="absolute-box">absolute</div>
+        <div id="fixed-box">fixed</div>
+    </div>
+
+    <div id="relative-box-1">
+        relative
+        <div id="absolute-box-1">
+            absolute
+        </div>
+    </div>
+
+    <div id="sticky">i am sticky</div>
+    <div style="padding-bottom: 2000px;">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe eius natus sit, dolor laboriosam eveniet. Asperiores aperiam, dignissimos incidunt
+         eveniet blanditiis corporis dolorum. Voluptatem est, illo nihil hic ut placeat!
+    </div>
+</body>
+</html>

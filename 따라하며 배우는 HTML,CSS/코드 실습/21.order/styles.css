@@ -1,0 +1,39 @@
+.container{
+    border: 6px solid lightgray;
+    display: flex;
+    height: 800px;
+    width:600px;
+   
+}
+.flex-item{
+    color:black;
+    font-size:2rem;
+    padding:1rem;
+    text-align: center;
+
+}
+.item-1{
+    background-color: lightblue;
+}
+
+.item-2{
+    background-color: lightyellow;
+    order:-1;/*order가 0이 기본값이라서*/
+}
+
+.item-3{
+    background-color: lightpink;
+   
+}
+.item-4{
+    background-color: lightgreen;
+}
+
+.item-5{
+    background-color: lightsalmon;
+    order:2;/*다들 기본값이 0일텐데 얜 2라서 뒤로 밀려난거임*/
+}
+
+.item-6{
+    background-color: lightskyblue;
+}

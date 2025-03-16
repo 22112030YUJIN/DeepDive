@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Document</title>
+  <style>
+    li{
+        float: left;
+        margin-right: 30px;
+        font-size: 32px;
+        list-style: none;/*이거 앞에 타원 표시 없애는거*/
+
+    }
+    li::after{
+        content: ' |'; /*요소의 각각 뒷 부분에 생성*/
+
+    }
+    li:first-of-type::before{
+        content:'시작 ';
+    }
+    li:last-of-type::after{ 
+        /*li 타입의 가장 마지막 부분의 뒷 자리*/
+        content: ' ';
+    }
+  </style>
+</head>
+<body>
+    <ul>
+        <li>A</li>
+        <li>B</li>
+        <li>C</li>
+    </ul>
+    
+</body>
+</html>

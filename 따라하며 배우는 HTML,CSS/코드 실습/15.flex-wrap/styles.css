@@ -1,0 +1,38 @@
+.container{
+    border: 6px solid lightgray;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /*기본값이 nowrap : 이러면 크기가 줄고 한줄에 쭉쭉 만들어짐
+     wrap하면 여러줄에 걸쳐서 생성가능 그러니 크기 안줄어듬*/
+
+}
+.flex-item{
+    color:black;
+    font-size:2rem;
+    padding:1rem;
+    text-align: center;
+
+}
+.item-1{
+    background-color: lightblue;
+}
+
+.item-2{
+    background-color: lightyellow;
+}
+
+.item-3{
+    background-color: lightpink;
+}
+.item-4{
+    background-color: lightgreen;
+}
+
+.item-5{
+    background-color: lightsalmon;
+}
+
+.item-6{
+    background-color: lightskyblue;
+}

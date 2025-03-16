@@ -1,0 +1,76 @@
+.a-button{
+    background-color: rgb(20,40,192);
+    color:white;
+    border:none;
+    border-radius: 30px;
+    cursor:pointer;
+    margin-right: 10px;/* margin은 바깥*/
+    margin-left: 30px;
+    padding-top: 20px; /*padding은 안쪽*/
+    padding-bottom: 20px;
+    padding-left:16px;
+    padding-right: 16px;
+   /* transition: opacity 0.30s;
+    transition: background-color 3s;*/
+     /*속도 변화 줘 부드럽게*/
+    
+    /* transition: opacity 0.3s, background-color 1s ease-in;*/
+    /*이러면 투명도는 빨리 변하고
+     배경은 좀 늦게 변하기 시작해서 빠르게 색 변하는*/
+
+     transition: all 0.30s ease-in;
+     /*이러면 모든 변화에 적용용*/
+}
+
+.a-button:hover{
+    opacity: 0.7; /*마우스를 위에 올리면 투명도*/
+    background-color: black;
+}
+
+.a-button:active{
+    opacity: 0.2; /*버튼을 클릭 했을때*/
+}
+
+.b-button{
+    background-color: white;
+    border-color: rgb(212,6,64);
+    border-style:solid;
+    border-width:1px;
+    color:rgb(6,95,212);
+    border-radius: 2px;
+    cursor: pointer;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 16px;
+    padding-right: 16px;
+    transition: background-color 3s, color 0.15s;
+}
+
+.b-button:hover{
+    background-color: rgb(6,95,212);
+    color:white;
+}
+
+.b-button:active{
+    opacity: 0.7;
+}
+
+.c-button{
+    background-color: rgb(25,69,98);
+    color:white;
+    border:none;
+    height: 36px;
+    width:74px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    margin-left:8px;
+    /*margin은 음수 가능 padding은 불가*/
+    /*2개는 top bottom, 4개는 t,r,b,l*/
+    transition: all 1s ease-out
+}
+
+.c-button:hover{
+    box-shadow: 5px 5px 10px rgb(0,0,0,0.5);
+}

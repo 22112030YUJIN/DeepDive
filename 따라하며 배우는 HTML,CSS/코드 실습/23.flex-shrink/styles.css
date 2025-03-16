@@ -1,0 +1,38 @@
+.container{
+    border: 6px solid lightgray;
+    display: flex;
+    width:400px;
+   
+   
+}
+.flex-item{
+    color:black;
+    font-size:2rem;
+    padding:1rem;
+    width:150px;
+    flex-shrink: 0;
+    /*이거 기본값 1인데 거 wrap안하면 그 자동 크기 조절 해주는애
+    wrap하면 flex-shrink적용 안되고
+    0으로 바꾸면 container에 적용한 저 width 넘어가더라도 옆에 쭉 생성됌*/
+
+}
+.item-1{
+    background-color: lightblue;
+  
+}
+
+.item-2{
+    background-color: lightyellow;
+   
+}
+
+.item-3{
+    background-color: lightpink;
+ 
+    
+}
+.item-4{
+    background-color: lightgreen;
+   
+}
+
