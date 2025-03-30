@@ -10,12 +10,13 @@
 }
 
 .sidebar-link {
-    height: 74px;
+    height: 70px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     cursor: pointer;
+    padding-bottom: 5px;
 }
 
 
@@ -31,4 +32,5 @@
 
 .sidebar-link:hover {
     background-color: #4D4D4D;
+    border-radius: 10px;
 }

@@ -25,8 +25,9 @@
 
 .hamburger-menu {
     height: 24px;
-    margin-left: 24px;
-    margin-right: 24px;
+    margin-left: 14px;
+    margin-right: 14px;
+    padding: 10px;
 }
 
 .youtube-logo {
@@ -41,6 +42,10 @@
     flex: 1;
     display: flex;
     align-items: center;
+}
+.search{
+    display: flex;
+    width: 450px;
 }
 
 .search-icon {
@@ -67,6 +72,7 @@
     border: 1px solid #4D4D4D;
     margin-left: -1px;
     margin-right: 10px;
+    border-radius: 0 40px 40px 0;
 }
 
 .upload-icon {
@@ -88,11 +94,14 @@
 
 
 .search-bar {
+    color: white;
+    min-width: 150px;
+    max-width: 450px;
     height: 36px;
     padding-left: 10px;
     font-size: 16px;
     border: 1px solid #4D4D4D;
-    border-radius: 2px;
+    border-radius: 40px 0 0 40px;
     background-color: #121212;
     flex: 1;
     /*공간 늘리는게 flex:1*/
@@ -111,6 +120,7 @@
     justify-content: center;
     align-items: center;
     position: relative;
+    cursor: pointer;
 }
 
 
@@ -134,6 +144,7 @@
 .voice-search-button:hover .tooltip,
 .upload-icon-container:hover .tooltip {
     opacity: 1;
+   
 }
 
 /*이러면 툴팁이 호버 전에는 안보이다가 호버 하면 보임*/
@@ -163,6 +174,16 @@
     padding-top: 2px;
     padding-bottom: 2px;
     border-radius: 10px;
+}
+
+.hamburger-menu:hover{
+    background-color: #4D4D4D;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.youtube-logo:hover{
+    cursor: pointer;
 }
 
 /*얘는 알람표시 위 1 표시 지정하는거임. 
@@ -196,5 +217,8 @@ positon은 부모 컨테이너랑 맞출려고 부모가 rel이고 얘가가abso
         border-radius: 2px;
         background-color: #121212;
         flex:0.8;
+        border-radius: 40px 0 0 40px;
+        min-width: 100px;
+        max-width: 200px;
     }
 }
