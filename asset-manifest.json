@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/DeepDive/React/Code/react-netflix-app/static/css/main.bf96be72.css",
+    "main.js": "/DeepDive/React/Code/react-netflix-app/static/js/main.bc531825.js",
+    "static/js/787.e5f53928.chunk.js": "/DeepDive/React/Code/react-netflix-app/static/js/787.e5f53928.chunk.js",
+    "index.html": "/DeepDive/React/Code/react-netflix-app/index.html",
+    "main.bf96be72.css.map": "/DeepDive/React/Code/react-netflix-app/static/css/main.bf96be72.css.map",
+    "main.bc531825.js.map": "/DeepDive/React/Code/react-netflix-app/static/js/main.bc531825.js.map",
+    "787.e5f53928.chunk.js.map": "/DeepDive/React/Code/react-netflix-app/static/js/787.e5f53928.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bf96be72.css",
+    "static/js/main.bc531825.js"
+  ]
+}
