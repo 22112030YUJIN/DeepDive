@@ -63,6 +63,37 @@
     z-index: 1000;
     color: white;
   }
+
+  .modal__video-container {
+  position: relative;
+  width: 100%;
+}
+
+.modal__play-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  font-size: 64px;
+  color: white;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  padding: 2%;
+  transition: transform 0.3s ease;
+  pointer-events: none; /* 이벤트는 이미지에만 전달 */
+}
+
+/* 마우스가 이미지 위에 있을 때 아이콘 확대 */
+.modal__video-container:hover .modal__play-overlay {
+  transform: translate(-50%, -50%) scale(1.2);
+}
+
+
+
+.modal__play-icon {
+  font-weight: bold;
+}
   @media screen and (max-height: 768px) {
     .wrapper-modal {
       align-items: unset;

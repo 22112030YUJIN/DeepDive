@@ -6,6 +6,7 @@ import styled from "styled-components";
 export default function Banner() {
   const [movie, setMovie] = useState([]);
   const [isClicked, setIsClicked] = useState(false);
+  const [showDetail, setShowDetail] = useState(false);
 
   useEffect(() => {
     fetchData();
@@ -25,8 +26,28 @@ export default function Banner() {
     const { data: movieDetail } = await axios.get(`movie/${movieId}`, {
       params: { append_to_response: "videos" },
     });
+
     setMovie(movieDetail);
   };
+
+  const handlePlayClick = () => {
+    //play 버튼 클릭 시 예고편 영상이 있는지 확인
+  if (
+    movie.videos &&
+    movie.videos.results &&
+    movie.videos.results.length > 0
+  ) {
+    setIsClicked(true);
+  } else {
+    alert("예고편 영상이 없습니다.");
+    setIsClicked(false);
+    return;
+  }
+};
+
+
+
+
 
   const truncate = (str, n) => {
     return str?.length > n ? str.substr(0, n - 1) + "..." : str;
@@ -51,28 +72,38 @@ export default function Banner() {
           <div className="banner__buttons">
             <button
               className="banner__button play"
-              onClick={() => setIsClicked(true)}
-            >
-              Play
+              onClick={() => {
+                setIsClicked(true);   
+                handlePlayClick()     
+              }}
+            >Play
             </button>
-            <button className="banner__button info">More Information</button>
+            <button 
+              className="banner__button info"
+              onClick={() => setShowDetail(!showDetail)}
+            >More Information
+            </button>
           </div>
 
           <h1 className="banner__description">
-            {truncate(movie.overview, 100)}
+            {showDetail ? movie.overview : truncate(movie.overview, 100)}
           </h1>
         </div>
         <div className="banner--fadeBottom" />
       </header>
+   
+
+
     );
   } else {
     return (
       <Container>
+        <CloseButton onClick={() => setIsClicked(false)}>✖</CloseButton>
         <HomeContainer>
           <Iframe
             width="640"
             height="360"
-            src={`https://www.youtube.com/embed/${movie.videos.results[0].key}?controls=0&autoplay=1&loop=1&mute=1&playlist=${movie.videos.results[0].key}`}
+            src={`https://www.youtube.com/embed/${movie.videos.results[0].key}?controls=1&autoplay=1&loop=1&mute=0&playlist=${movie.videos.results[0].key}`}
             title="YouTube video player"
             frameborder="0"
             allow="autoplay; fullscreen"
@@ -113,4 +144,24 @@ const Container = styled.div`
 const HomeContainer = styled.div`
   width: 100%;
   height: 100%;
+`;
+
+const CloseButton = styled.button`
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  font-size: 2rem;
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.3s;
+
+  &:hover {
+    background: rgba(255,255,255,0.2);
+  }
 `;

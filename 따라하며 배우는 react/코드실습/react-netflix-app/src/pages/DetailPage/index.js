@@ -6,33 +6,30 @@ import "./detailPage.css";
 export default function DetailPage() {
   const { movieId } = useParams();
   const [movie, setMovie] = useState({});
-
+  const [videoKey, setVideoKey] = useState(null);
+  const [isPlaying, setIsPlaying] = useState(false);
   const [imageError, setImageError] = useState(false);
   const navigate = useNavigate();
-  //이미지 정보 있는데 깨질 때 처리할 거
-
- /* useEffect(() => {
-    async function fetchData() {
-      const request = await axios.get(`/movie/${movieId}`);
-      setMovie(request.data);
-    }
-    fetchData();
-  }, [movieId]);*/
 
   useEffect(() => {
-     
-      async function fetchData() {
-        try{
-          const request = await axios.get(`/movie/${movieId}`);
-          setMovie(request.data);
-      
-    }catch(error){
+    async function fetchData() {
+      try {
+        const request = await axios.get(`/movie/${movieId}`, {
+          params: { append_to_response: "videos" },
+        });
+        setMovie(request.data);
+
+        const trailer = request.data.videos?.results.find(
+          (v) => v.type === "Trailer" && v.site === "YouTube"
+        );
+        setVideoKey(trailer?.key || null);
+      } catch (error) {
         console.error("영화 데이터를 불러오는데 실패했습니다.", error);
         alert("영화 데이터를 불러오는데 실패했습니다.");
-        navigate(-1); 
-        //영화 데이터 없음 알람 확인 후 바로 직적 페이지 (검색 페이지)로 이동
+        navigate(-1);
+      }
     }
-  }
+
     fetchData();
 
     return () => {
@@ -41,21 +38,47 @@ export default function DetailPage() {
   }, [movieId]);
 
   if (!movie) return <div>...loading</div>;
- 
- //이거 이미지 안뜰때도 크기 고정하려고..
+
   return (
     <section>
-        {movie.backdrop_path && !imageError ? (
-        <img
-          className="detail__bg-img"
-          src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
-          alt="poster"
-          onError={() => setImageError(true)}
-        />
+      {/* 이미지 또는 영상 */}
+      {!isPlaying ? (
+        movie.backdrop_path && !imageError ? (
+          <div className="detail__video-container">
+            <img
+              className="detail__bg-img"
+              src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
+              alt="poster"
+              onError={() => setImageError(true)}
+              onClick={() => {
+                if (videoKey) {
+                  setIsPlaying(true);
+                } else {
+                  alert("예고편 영상이 없습니다.");
+                }
+              }}
+              style={{ cursor: videoKey ? "pointer" : "default" }}
+            />
+            {videoKey && (
+              <div className="detail__play-overlay">▶</div>
+            )}
+          </div>
+        ) : (
+          <div className="detail__bg-placeholder" />
+        )
       ) : (
-        <div className="detail__bg-placeholder" />
-      )} 
-      
+        <div className="detail__video-container">
+          <iframe
+           className="detail__video-iframe"
+            src={`https://www.youtube.com/embed/${videoKey}?autoplay=1&controls=1`}
+            title="YouTube video player"
+            frameBorder="0"
+            allow="autoplay; fullscreen"
+            allowFullScreen
+          ></iframe>
+        </div>
+      )}
+
       <div className="detail__overlay">
         <h1 className="detail__title">{movie.title}</h1>
         <p className="detail__release">{movie.release_date}</p>
